@@ -20,4 +20,5 @@ function salesCommission (input,sales){
     return status;
 }
 console.log(salesCommission(true,300));
+console.log(salesCommission(true,300));
 console.log(salesCommission(false,700));
