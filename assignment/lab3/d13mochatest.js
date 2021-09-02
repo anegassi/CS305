@@ -8,6 +8,13 @@ const convertFahrenhiet=methods.convertFahrenhiet;
 const calDistance=methods.calDistance;
 // const calcDownpayment = methods.calcDownpayment;
 
+/**
+ * This function computes commission of a salaried and non salaried
+ * sales man
+ * @param {boolean} input whether the salesman is salaried or not
+ * @param {number} sales the salesamount
+ * @returns {number} status the amount of commission the salesman makes
+ */
 describe("test of ComputSalesCommission", function () {
     it("tests salaried and 200 sales", function () {
         assert.strictEqual(computeSalesCommission(true, 200), 0);
@@ -29,6 +36,11 @@ describe("test of ComputSalesCommission", function () {
 });
 //////////////////################/////////////////////////
 
+/**
+ * This function computes the down payment of a house
+ * @param {number} cost the cost of the house
+ * @returns {number} downPayment the amount of down payment required
+ */
 describe("calcDownpayment",function(){
     it("calcDownpayment",function(){
         assert.equal(calDownPayment(40000),2000)
@@ -44,6 +56,11 @@ describe("calcDownpayment",function(){
     })
 })
 
+/**
+ * This function checks if a given character is a vowel or not
+ * @param {string} char the charater to be check if it is vowel or not
+ * @returns {boolean} Boolean if the result is true or false
+ */
 describe("isVowel", function () {
     it("a is vowel", function () {
         assert.equal(isVowel("a"), true);
@@ -68,6 +85,13 @@ describe("isVowel", function () {
     });
 });
 
+/**
+ * This function computes the compound interest collected in a given time
+ * @param {number} num1 the principal amount 
+ * @param {number} num2 the interest rate collected 
+ * @param {number} num3 the period of time interest collected
+ * @returns {number} Amount the compound interest collected
+ */
 describe("compoundInterest", function () {
     it("110.47 is the compoundInterest", function () {
         assert.equal(compoundInterest(100,10,1), Math.floor(110.47));
@@ -76,6 +100,12 @@ describe("compoundInterest", function () {
         assert.equal(compoundInterest(10000,5,10),Math.floor(16470.09));
     });
 });
+
+/**
+ * This function converts temprature reading from celsius to fahrenhiet
+ * @param {number} num1 the celsius reading
+ * @returns {number} result the relative fahrenhiet reading
+ */
 
 describe("convertFahrenhiet",function(){
     it("convertFahrenhiet",function(){
@@ -91,6 +121,11 @@ describe("convertFahrenhiet",function(){
         assert.equal(convertFahrenhiet(100),Math.floor(37.7778));
     })
 })
+/**
+ * This function calculates the distance between two points in x and y cordinates
+ * @param {number} x1,y1,x2,y2 the coordinates of the two points in x and y axis
+ * @returns {number} distance the distance between the two points
+ */
 
 describe("calDistance", function () {
     it("calDistance", function () {
