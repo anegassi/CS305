@@ -1,6 +1,6 @@
 "use strict";
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
-module.exports = {addBook}; //add all of your function names here that you need for the node mocha tests
+//module.exports = {addBook,findTitles}; //add all of your function names here that you need for the node mocha tests
 
 
 let library = [
@@ -27,13 +27,44 @@ function showTitles() {
     textArea.innerHTML = titleString;
 }
 
+function showAuthor() {
+
+    /* put all titles into an array, then sort, then join with newline and insert in textarea innerHTML */
+
+    const titles = findAuthor();
+
+    /*need to sort and then join the titles still (e.g., someArray.join("\n")  */
+    titles.sort();
+    const titleString = titles.join("\n");
+
+    let textArea = document.getElementById("displayArea");
+    textArea.innerHTML = titleString;
+}
+
+function showID() {
+
+    /* put all titles into an array, then sort, then join with newline and insert in textarea innerHTML */
+
+    const titles = findLibraryID();
+
+    /*need to sort and then join the titles still (e.g., someArray.join("\n")  */
+    titles.sort();
+    const titleString = titles.join("\n");
+
+    let textArea = document.getElementById("displayArea");
+    textArea.innerHTML = titleString;
+}
+
 /**
  * 
  * @return {object} array holding all titles as elements
  */
 function findTitles() {
     let titles = [];
-    titles = ["Mockingjay: The Final Book of The Hunger Games", "The Road Ahead", "Walter Isaacson"];  //FIX THIS!!
+    for(let bookobj of library){
+        titles[titles.length]=bookobj.title;
+    }
+    
     // implement this and other functions
     return titles;
 }
@@ -42,17 +73,52 @@ function findTitles() {
  * @returns {undefined} no return
  * Event handler for Add book button.  Creates and adds book to the library
  */
-function addBook(title,author,libraryID){
+function addbook(){
 
     let bookobj={};
-    bookobj['title']=title;
-    bookobj['author']=author;
-    bookobj['libraryID']=libraryID;
+    bookobj['title']=document.getElementById("booktitle").value;
+    bookobj['author']=document.getElementById("author").value;
+    bookobj['libraryID']=document.getElementById("libraryId").value;
     library[library.length]= bookobj
     console.log(library)
+
+    //let textArea = document.getElementById("displayArea");
+    // textArea.innerHTML = library;
+    document.getElementById("displayArea").innerHTML = library;
+    
    // const title = document.getElementById("title"); 
    //retrieves the book title from the title textbox
     //finish the implementation -- get the author, create a book object, and add to the library array
    return bookobj
 }
-console.log(addBook( "My New Book","Me Too",1144))
+
+/**
+ * 
+ * @return {object} array holding all libraryID as elements
+ */
+ function findLibraryID() {
+    let libraryIDs = [];
+    for(let bookobj of library){
+        libraryIDs[libraryIDs.length]=bookobj.libraryID;
+    }
+    console.log(library)
+    // implement this and other functions
+    return libraryIDs;
+}
+/**
+ * 
+ * @return {object} array holding all author as elements
+ */
+ function findAuthor() {
+    let authors = [];
+    for(let bookobj of library){
+        authors[authors.length]=bookobj.author;
+    }
+    
+    // implement this and other functions
+    return authors;
+}
+// console.log(addBook( "My New Book","Me Too",1144))
+// console.log(findAuthor());
+// console.log(findTitles());
+// console.log(findLibraryID());

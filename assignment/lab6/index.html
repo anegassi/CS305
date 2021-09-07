@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- <script>
+        // index.html is the first page that gets rendered with the v8 javascript engine, you can not have multiple index.html files at the same location to be executed but
+        you can link other html pages to the index ex, sophia.html pages can be linked to the index.html to be executed next
+       console.log('hello') 
+       alert('yoo')
+       // everything has to be written inside html tags and for the code to run in chrome you have to put your code inside 
+    // script tags
+    // semicolon is not importnat at the end of everyline as long as you keep them in one line separately
+    
+    </script> -->
+    
+       
+     <form >
+         <label for='bktitle'>BookTitle</label> 
+         <br>
+         <input type='text' id='booktitle' name='bktitle'>
+         <br>
+         <label for='author2'>Author</label>
+         <br>
+         <input type='text' id='author' name='author2'>
+         <br>
+         <label for='libraryID'>LibraryID</label>
+         <br>
+         <input type='text' id='libraryId' name='libraryID'>
+         <br> <br> 
+         <input type='button' value='Add Book to Library'onclick='addbook()'>
+         <input type='button' value='Show Title' onclick='showTitles()'>
+         <input type='button' value='Show Authors' onclick='showAuthor()'>
+         <input type='button' value='Show ID' onclick= 'showID()'>
+         <br><br>
+         <textarea id="displayArea" rows="20" cols="50">
+             
+         </textarea>
+        
+
+         
+     </form>
+
+      <script src='app.js'>
+       
+      </script>
+    
+
+
+
+</body>
+</html>
