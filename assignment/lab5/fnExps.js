@@ -4,7 +4,6 @@ const { assert } = require("console");
 
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser
 */ 
-module.exports = {double, times100, myMap,myMap1,myMap2,triple}; //add all of your function names here that you need for the node mocha tests
 
 /**
  *@returns {number} double the input
@@ -66,3 +65,9 @@ function myMap(arr,func){
     return newArray;
 }
 
+module.exports = {double, times100, myMap,myMap1,myMap2,triple}; //add all of your function names here that you need for the node mocha tests
+   // We need to write arrow function and anonymous function before "module.exports" as we can't use them before initialization 
+   // since they are function expression and need to be initialized before we export them 
+   // else we wil get an error message saying we can't access them before initialization    
+   // A Function Expression is created when the execution reaches it and is usable only from that moment.
+   // A Function Declaration can be called earlier than it is defined.

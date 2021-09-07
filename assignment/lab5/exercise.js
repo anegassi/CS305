@@ -18,6 +18,13 @@ function ask2(question, yes, no) {
 
     ask2( "Do you agree?",
     function() { console.log("You agreed."); },
-    function() { console.log("You canceled the execution."); })
+    function() { console.log("You canceled the execution."); })   //   
 
-    
+/////////////////////////////////
+let isEven = (a) => {return a%2===0;}
+console.log(isEven(4));         // true
+let isOdd = (a) => a%2 !== 0;
+ console.log(isOdd(7));   //   true
+let sayHello = () => console.log('HI');
+ sayHello();    //   HI
+
