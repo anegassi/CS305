@@ -84,7 +84,7 @@ function addbook(){
 
     //let textArea = document.getElementById("displayArea");
     // textArea.innerHTML = library;
-    document.getElementById("displayArea").innerHTML = library;
+    document.getElementById("displayArea").innerHTML = JSON.stringify(library);
     
    // const title = document.getElementById("title"); 
    //retrieves the book title from the title textbox
