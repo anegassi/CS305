@@ -71,13 +71,13 @@ return sum;
    
 };
 
-console.log("total balance should be 85: ", bank.bankBalance());
- bank.credit(1, 20);
- bank.debit(1, 1000);
- console.log("total should now be 105: ", bank.bankBalance());
- console.log(bank)
+// console.log("total balance should be 85: ", bank.bankBalance());
+//  bank.credit(1, 20);
+//  bank.debit(1, 1000);
+//  console.log("total should now be 105: ", bank.bankBalance());
+//  console.log(bank)
  
-
+//the above should be comented if we are going to run it usimg a moch in bankTest.js
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
 /* must be at end of file if are exporting an object so the export is after the definition */
 module.exports = {bank }; //add all of your object names here that you need for the node mocha tests
