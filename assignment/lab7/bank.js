@@ -12,13 +12,17 @@ The bank object should have a transactionsDB property, which will be an array of
 */
 
 const bank = {
-    transactionsDB: [],
+    transactionsDB: []
 };
 bank.transactionsDB = [
     { customerId: 1, customerTransactions: [10, 50, -40] },
     { customerId: 2, customerTransactions: [10, 10, -10] },
     { customerId: 3, customerTransactions: [5, -5, 55] }];
-
+   // bank.transactionsDB[0] this is how we access the 1st element
+   // and it returns object
+   // bank.transactionsDB[0].customerTransactions[1] this returns 50
+   // bank.transactionsDB[1].customerId returns 2
+   // bank.transactionsDB[2].customerTransactions returns [5,-5,55]
 
 bank.saveTransaction = function (id, amount) {
     const customer = bank.transactionsDB.find(customer => customer.customerId === id);
@@ -28,7 +32,7 @@ bank.saveTransaction = function (id, amount) {
 
 bank.debit = function (id, amount) {
     const currentbalance=this.getBalance(id)
-    if(currentbalance<amount){
+    if(currentbalance>amount){
        this.saveTransaction(id,-amount)
 
     }
@@ -40,13 +44,14 @@ bank.credit = function (id, amount) {
     const balance = this.getBalance(id);
     //balance.balance += amount;
     this.saveTransaction(id, amount);
+    
 }
 
 bank.getBalance = function (id) {
 
 let sum=0;
 const customer = bank.transactionsDB.find(customer => customer.customerId === id);
-for(let x of customer.customerTransactions)
+for(let x of (customer.customerTransactions))
    sum+=x
    return sum;
 };
@@ -58,8 +63,8 @@ for(let x of customer.customerTransactions)
  */
 bank.bankBalance = function () {
     let sum=0;
-    for(let customer of this.transactionsDB){
-        sum+=this.getBalance(customer.id)
+    for(let customer of bank.transactionsDB){
+        sum+=bank.getBalance(customer.customerId)
     }
 
 return sum;
@@ -67,9 +72,11 @@ return sum;
 };
 
 console.log("total balance should be 85: ", bank.bankBalance());
-// bank.credit(1, 20);
-// bank.debit(1, 1000);
-// console.log("total should now be 105: ", bank.bankBalance());
+ bank.credit(1, 20);
+ bank.debit(1, 1000);
+ console.log("total should now be 105: ", bank.bankBalance());
+ console.log(bank)
+ 
 
 /* You need the module.exports when testing in node.  Comment it out when you send your file to the browser */
 /* must be at end of file if are exporting an object so the export is after the definition */
