@@ -13,7 +13,7 @@ function double(n){
     return num;
 }
 /**
- *@returns {number} double the input
+ *@returns {number} triple the input
  */
  function triple(n){
     let num=n*3 

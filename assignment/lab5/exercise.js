@@ -27,4 +27,4 @@ let isOdd = (a) => a%2 !== 0;
  console.log(isOdd(7));   //   true
 let sayHello = () => console.log('HI');
  sayHello();    //   HI
-
+console.log(sayHello)    // [Function: sayHello]  returns the function itself

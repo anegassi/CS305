@@ -43,8 +43,7 @@ function marry(man, woman) {
     //arr.forEach(console.log());
     ["a","b","c","d"].forEach(function(char){console.log(char)})
     
-    let day=function(){console.log("what time is it?")}
-
+    
    arr.forEach(function(){console.log(arr)})
 
    ///////////////////////////////////////

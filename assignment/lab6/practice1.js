@@ -50,7 +50,7 @@ let xxx = 9;
 let y = {xxx};
 console.log(y)
 function sum() {
-    console.log("print x");
+    console.log("print xxx");
 }
 
 exports = {sum:sum};
@@ -86,8 +86,8 @@ for(let key in myObj){
     console.log(key, myObj[key]);
 }
 
-let a = {name:"1",age:"3","play":3}
-for(let b of a){
+let aa = {name:"1",age:"3","play":3}
+for(let b in aa){
     console.log(" I am here ",b );
 }
 
