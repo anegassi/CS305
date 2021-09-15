@@ -102,7 +102,8 @@ console.log(array1.indexOf(0)); // 1
    //////////************////////////////////
    let lengths = ["Bilbo", "Gandalf", "Nazgul"].map(item => item.length); 
    console.log(lengths); // 5,7,6
-    
+   let arrr=["Bilbo", "Gandalf", "Nazgul"].map((item,index)=> {return {bb:index,vv:item.length}});
+   console.log(arrr);
    /////////////////////////
    function compareNumeric(a, b) { 
      if (a > b) return 1;

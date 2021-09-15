@@ -21,7 +21,7 @@ function ucFirst(str) {
 
   function truncate(str, maxlength) {
        
-      return (str.length>maxlength)? str.slice(0,maxlength-1)+"…":str
+      return (str.length>=maxlength)? str.slice(0,maxlength-1)+"…":str
        
   }
  
@@ -57,8 +57,8 @@ function ucFirst(str) {
 
 function camelize(str) {
     let arr=str.split('-');
-    let finalstring=''
-    finalstring =arr.reduce((finalstring,current,index)=>{
+    //let finalstring=''
+    let finalstring =arr.reduce((finalstring,current,index)=>{
          if(index==0)
              return finalstring+current;
           return finalstring+ucFirst(current);
