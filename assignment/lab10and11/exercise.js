@@ -36,12 +36,7 @@ console.log(factorial2(5));
  }
  console.log(lengthOfWord("hellow"));
 
- /**
-  * Write a recursive function to count the instances of a letter in a string. 
-  * Use recursion rather than split and filter.
-  * Base case?
-  * Reductive recursive call?
-  */
+ 
 
 
  function findMin(arr){
@@ -115,6 +110,13 @@ function fibonacci2(num){
 // console.log(fibonacci3(6));
 
 /////////// 
+/**
+  * Write a recursive function to count the instances of a letter in a string. 
+  * Use recursion rather than split and filter.
+  * Base case?
+  * Reductive recursive call?
+  */
+
 function occurrenceloop(str,letter){
     let count = 0;
     for(let i=0; i<str.length;i++){
@@ -219,6 +221,23 @@ function totalSumRecc(comp){
 }
 
 console.log(totalSumRecc(company3))
+/////////////////////////////
+
+function allEmployeeNames(company) {
+    let employees = [];
+    if (!company)
+        return employees;
+
+    for (let key in company) {
+        if (Array.isArray(company[key])) {
+            employees = employees.concat(company[key].map(item => item.name));
+        }
+        else {
+            employees = employees.concat(allEmployeeNames(company[key]));
+        }
+    }
+    return employees;
+}
 
 /////////////linked list//////////////////
  let list = { value: 1 };
@@ -231,7 +250,7 @@ console.log(JSON.stringify(list))
 /*list.next.next= null;/// this will disconnect the third and fourth object from the list
 console.log(list)*/
 
-////delet {value:3}
+////delete {value:3}
 /**let newList= list.next.next   // we have to assign the .next to a newList before we delete it
 list.next.next= null;   // before we delete a .next we need to assign it to a new list inorder not to lose it 
 console.log(list)
@@ -254,8 +273,8 @@ console.log(JSON.stringify(list))
 console.log(list)
 //////////
 function linkedList(){
-    let D={value:'E'}
-    let c = {value:"C",next:D}
+    let d={value:'E'}
+    let c = {value:"C",next:d}
     let b ={value:"B",next:c}
     let a = {value: "A", next:b};
     console.log(a);
@@ -377,3 +396,4 @@ console.log(bb) // {a:1, b:2, c:3, d: 44}
 bb.a = 100;
 console.log(aa) // {a:1, b:2, c:3, d: 44} -- clone
 console.log(bb)  // { a: 100, b: 2, c: 3, d: 44 }
+////////////////////////////
