@@ -20,10 +20,10 @@ console.log("expect Bob: ", one);       //  Bob
  */
  team = { point, shooting,power:"Jim",small:"Al",center:"Big Sleep" } 
  
- let { one1="orange", shooting1="mango", small1, four1=power,center1=five} =team;
- console.log(one1)             // orange
- console.log(shooting1)        // mango
- console.log(small1)           // undefined
+  ({ point="orange", shooting="mango",power=four,center=five} =team)
+ console.log(one)             // orange
+ console.log(shooting)        // mango
+ console.log(small)           // undefined
  console.log(four)             // Jim
 /**
  * changing obj to JSON and JSON back to obj and they objects are not equall
@@ -167,3 +167,4 @@ let john = {
   /**
    * 
    */
+  
