@@ -125,7 +125,7 @@ function reverseListLoop(list){
 function reverseList(list){
     let result=[];
     if(list==null)
-    return " printed to console";
+    return  " printed to console";
     for(let key in list){
         if(key=="value")
         result.unshift(list[key]);
@@ -134,6 +134,7 @@ function reverseList(list){
         }
 
     }
+            
     return result.join(" ");
 }
 console.log(reverseList(list))

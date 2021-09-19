@@ -10,6 +10,8 @@
 // sayHi();     // Hi
 // console.log(`Called ${sayHi.counter} times`,sayHi.myParam);
 
+//const { count } = require("console");
+
 // console.log(sayHi.length);    // 0 , this will display the number of arguments passed in the function
 // console.log(sayHi.name)     // sayHi will be displayed after using .name to print the name of function
 
@@ -146,35 +148,35 @@ Make two variants of the solution.
 
 ////Any setTimeout will run only after the current code has finished.//
 
-let i = 0;
-setTimeout(() => console.log(i), 0); // ? 
+// let i = 0;
+// setTimeout(() => console.log(i), 0); // ? 
 
 // assume that the time to execute this function is >100ms
-for(let j = 0; j < 100000000; j++) {
-  i++;
-} ////
+// for(let j = 0; j < 100000000; j++) {
+//   i++;
+// } ////
 
 ////////class labs////
 
-function a(){
-    console.log("print me");
-    let count=0;
-    return function(){
-        console.log("I am inner ",++count)
-        if(count>=6)
-        {clearInterval(stop1)}
+// function a(){
+//     console.log("print me");
+//     let count=0;
+//     return function(){
+//         console.log("I am inner ",++count)
+//         if(count>=6)
+//         {clearInterval(stop1)}
 
-    }
-}
-function sayHi(phrase,who){
-    console.log(phrase +','+who);
+//     }
+// }
+// function sayHi(phrase,who){
+//     console.log(phrase +','+who);
 
-}
-setTimeout(sayHi,1000,"hello",'aradom');
-let stop3=setTimeout(sayHi,2000,"hello",'sophia');
-let stop4=setTimeout(sayHi,1000,"hello",'titi');
-let stop1=setInterval(a(),1000);
-clearTimeout(stop4)
+// }
+// setTimeout(sayHi,1000,"hello",'aradom');
+// let stop3=setTimeout(sayHi,2000,"hello",'sophia');
+// let stop4=setTimeout(sayHi,1000,"hello",'titi');
+// let stop1=setInterval(a(),1000);
+// clearTimeout(stop4)
 /**
  * hello,aradom
   and I am inner  1 get printed at the same time
@@ -183,3 +185,21 @@ clearTimeout(stop4)
 I am inner  2
 they also get printed at the same  time after the first set
  */
+let count=0;
+// function b(funName, timeInterval){
+//   console.log("I am inner", ++count,funName);
+//   clearInterval(timeInterval);
+// }
+// let timeInterval= setInterval(b,1000,"Interval");
+// setTimeout(b,5000,"Timeout",timeInterval);
+// let stop5=setInterval(b,2000,"Interval2");
+
+/**
+ * 
+ */
+// function b(funName,timeInterval){
+//   console.log("I am inner",++count,funName);
+//   clearInterval(timeInterval);
+// }
+// let timeInterval=setInterval(b,1000,"Interval");
+// setTimeout(b,5000,"Timeout",timeInterval);
