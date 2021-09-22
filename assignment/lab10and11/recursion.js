@@ -138,3 +138,58 @@ function reverseList(list){
     return result.join(" ");
 }
 console.log(reverseList(list))
+
+////////////////////
+let node3 = {
+    name: "p",
+    value: "This is text in the a paragraph",
+    children: null
+};
+let node4 = {
+    name: "label",
+    value: "Name",
+    children: null
+};
+let node5 = {
+    name: "input",
+    value: "this was typed by a user",
+    children: null
+};
+let node2 = {
+    name: "div",
+    value: null,
+    children: [node4, node5]
+};
+let node1 = {
+    name: "body",
+    children: [node2, node3],
+    value: null,
+}
+
+function printNames(node){
+    console.log(node.name +":" + node.value)
+    if(node.children && node.children.length>0 ){
+        node.children.forEach(node => {
+            printNames(node)
+        });
+    }
+}
+printNames(node1)
+
+function printNamesLoop(node){
+    console.log(node.name +":" + node.value)
+    if(node.children && node.children.length>0 ){
+        node.children.forEach(node1 => {
+            console.log(node1.name +":" + node1.value);
+            if(node1.children && node1.children.length>0 ){
+                node1.children.forEach(node2=>{
+                    console.log(node2.name +":" + node2.value);
+                })
+            }
+
+        });
+    }
+
+}
+
+printNamesLoop(node1)

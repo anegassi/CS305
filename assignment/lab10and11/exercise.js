@@ -2,6 +2,8 @@
 // factorial (0) = 1
 //factorial (n) = n * factorial (n-1) [for n>0]
 
+const { stringify } = require("querystring");
+
 // iterative solution
 function factorial(n){
     if (n==0) 
@@ -352,48 +354,102 @@ console.log(sum)
   /**
    * using spread operator it clones the array or object
    */
-//   let a=[1,2,3]
-//   let b=a;
-//   let c=[1,2,3];
-//   let d=[...a];
-//   console.log(a==b);   // true
-//   console.log(a==c);   // false coz they are referring to different object
-//   console.log(a==d);   // false coz they are referring to different object
-//   b.splice(0,1);
-//   console.log(a);     // [2,3]
-//   let e=[...c];
-//   console.log(c==e);   // false coz its a clone and they are not the same
-  /////////////////////////////////
-  let a, b, c, d, e; 
-   a = [1,2,3];
-   b = "dog";
-   c = [42, "cat"];
-// Using the concat method.
-d = a.concat(b, c); // [1, 2, 3, “dog”, 42, “cat”]
-// Using the spread operator.
-e = [...a, b, ...c]; // [1, 2, 3, “dog”, 42, “cat”] copyOfA = [...a] //[1, 2, 3]
-let str = "Hello";
-console.log( [...str] ); // [ 'H', 'e', 'l', 'l', 'o' ]
-console.log( [...str].join("&") );      //  H&e&l&l&o
-console.log(typeof [...str].join("&") );  // string
+  let a=[1,2,3]
+  let b=a;
+  let c=[1,2,3];
+  let d=[...a];
+  console.log(a==b);   // true
+  console.log(a==c);   // false coz they are referring to different object
+  console.log(a==d);   // false coz they are referring to different object
+  b.splice(0,1);
+  console.log(a);     // [2,3]
+  let e=[...c];
+  console.log(c==e);   // false coz its a clone and they are not the same
+  ///////////////////////////////
+//   let a, b, c, d, e; 
+//    a = [1,2,3];
+//    b = "dog";
+//    c = [42, "cat"];
+// // Using the concat method.
+// d = a.concat(b, c); // [1, 2, 3, “dog”, 42, “cat”]
+// // Using the spread operator.
+// e = [...a, b, ...c]; // [1, 2, 3, “dog”, 42, “cat”] copyOfA = [...a] //[1, 2, 3]
+// let str = "Hello";
+// console.log( [...str] ); // [ 'H', 'e', 'l', 'l', 'o' ]
+// console.log( [...str].join("&") );      //  H&e&l&l&o
+// console.log(typeof [...str].join("&") );  // string
 
-a.push([5,6]);   
-a.concat([5,6]);
-console.log(a);    // [ 1, 2, 3, [ 5, 6 ] ] 
-a=a.concat([5,6]);
-console.log(a)       // [ 1, 2, 3, [ 5, 6 ], 5, 6 ]
+// a.push([5,6]);   
+// a.concat([5,6]);
+// console.log(a);    // [ 1, 2, 3, [ 5, 6 ] ] 
+// a=a.concat([5,6]);
+// console.log(a)       // [ 1, 2, 3, [ 5, 6 ], 5, 6 ]
 
-let spread1=[1,2,3]
-let spread2=[5,6,7]
-let spread="dog"
-console.log([...spread1,...spread2,spread]);
-console.log(spread1.concat(spread2,spread));
-//////////////////////////////
-let aa, bb, cc, dd, ee;
-aa = {a:1, b:2, c:3, d: 44}
-bb = { ...aa }
-console.log(bb) // {a:1, b:2, c:3, d: 44}
-bb.a = 100;
-console.log(aa) // {a:1, b:2, c:3, d: 44} -- clone
-console.log(bb)  // { a: 100, b: 2, c: 3, d: 44 }
-////////////////////////////
+// let spread1=[1,2,3]
+// let spread2=[5,6,7]
+// let spread="dog"
+// console.log([...spread1,...spread2,spread]);
+// console.log(spread1.concat(spread2,spread));
+// //////////////////////////////
+// let aa, bb, cc, dd, ee;
+// aa = {a:1, b:2, c:3, d: 44}
+// bb = { ...aa }
+// console.log(bb) // {a:1, b:2, c:3, d: 44}
+// bb.a = 100;
+// console.log(aa) // {a:1, b:2, c:3, d: 44} -- clone
+// console.log(bb)  // { a: 100, b: 2, c: 3, d: 44 }
+// ////////////////////////////
+/**
+ * 
+ */
+let node5 ={ name: "input", next: null };
+let node4 ={ name: "label", next: node5 };
+let node3 ={ name: "p", next: node4 };
+let node2 ={ name: "div", next: node3 };
+let node1 ={ name: "body", next: node2 };
+//////// if we want to creat class at the last node with null value at the next property
+function classAdder(node){
+    if(!node)
+      return;
+    if(node.next)
+        classAdder(node.next);
+    else
+      node.class= "classNode";
+}
+classAdder(node1);
+console.log(JSON>stringify(node1));
+
+/**
+ * if we want to creat new class in every node then use the code below
+ */
+function classAdder(node){
+    if(!node)
+       return;
+    node.class= "classNode";
+    if(node.next)
+      classAdder(node.next);   
+}
+
+classAdder(node1);
+console.log(JSON.stringify(node1));
+/**
+ * write a function classAdder(node), that creat a new class property with value
+ * "classNode" in each nodes
+ */
+let node4= { name: "label", children : null };
+let node5= { name: "input", children : null };
+let node3= { name: "p", children : null };
+let node2= { name: "div", children : [node4, node5] };
+let node1= { name: "body", children : [node2,node3] };
+
+function classAdder(node){
+    if(!node)
+      return;
+    node.class= "classNode";
+    if(node.children && node.children.length>0)
+        for(let child of node.children){
+            classAdder(child);  
+        }
+        console.log(JSON.stringify(node));
+    }
+classAdder(node1);

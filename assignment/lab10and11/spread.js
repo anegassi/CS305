@@ -21,6 +21,19 @@ const maggie = new TreeNode("Maggie");
 abe.descendents.push(homer);
 homer.descendents.push(bart, lisa, maggie);
 
+function printName(node) {
+
+      /* the node reduction */
+      console.log("name:", node.value)
+      if (node.descendents !== null)
+      for (let child of node.descendents) {
+          printName(child)
+      }
+  }
+  printName(abe);
+
+  
+
 function logNames(root) {
   console.log(root.value);
   if (root.descendents.length != 0) {
@@ -46,9 +59,9 @@ function contains(tree, name) {
 function findSubTree(tree, value) {
   if (tree.value == value) return tree;
   else if (tree.descendents != 0) {
-    for (let ch of tree.descendents) {
-      if (contains(ch, value)) {
-        return findSubTree(ch, value);
+    for (let child of tree.descendents) {
+      if (contains(child, value)) {
+        return findSubTree(child, value);
       }
     }
   }
@@ -60,12 +73,6 @@ function ListNode(node, next) {
   this.next = next;
 }
 
-let listNode = new ListNode("abe.value");
-let maggieNode = new ListNode("maggie.value", null);
-let lisaNode = new ListNode("lisa.value", maggieNode);
-let bartNode = new ListNode("bart.value", lisaNode);
-let homerNode = new ListNode("homer.value", bartNode);
-let abeNode = new ListNode("abe.value", homerNode);
 
 function createList() {
   let listNode = new ListNode(abe.value);
@@ -85,26 +92,37 @@ function findListNode(list, target) {
 
 
 function allCaps(node) {
-  node.value = node.value.toUpperCase();
+   node.value = node.value.toUpperCase();
 }
 
 function addStars(node) {
-  node.value = "***" + node.value + "***";
+    node.value=   "***" + node.value + "***";
+    
 }
 
 function reverseNode(node) {
   let temp = [...node.value];
   let a = temp.reverse();
   let b = a.join("");
-  node.value = b;
+   node.value = b;
 }
+function modiferFunc(node){
+  allCaps(node);
+   addStars(node);
+    reverseNode(node);
+
+}
+
 
 function treeModifier(tree, modiferFunc) {
   modiferFunc(tree);
+  
   if (tree.descendents.length != 0) {
-    for (let ch of tree.descendents) treeModifier(ch, modiferFunc);
+    for (let child of tree.descendents) 
+      treeModifier(child, modiferFunc);
   }
 }
+treeModifier(abe,modiferFunc);
 let accomulatedName = [];
 
 function treeCollector(tree) {

@@ -29,60 +29,6 @@ const maggie = new TreeNode('Maggie');
 abe.descendents.push(homer);
 homer.descendents.push(bart, lisa, maggie);
 
-/**
- * 
- * @param {*} node 
- * @returns{}
- */
-
-function printName(node) {
-
-    if (node.descendents === null) {
-        console.log("name:", node.value)
-    }
-    else {
-        /* the node reduction */
-        console.log("name:", node.value)
-        for (let child of node.descendents) {
-            printName(child)
-        }
-    }
-}
-
-console.log(printName(abe));
-
-/**
- * 
- * @param {node} node 
- * @param {target} target 
- * @returns {boolean} true if target exists, otherwise false
- */
-function contains(node, target) {
-    if (node.descendents === null) {
-        if (node.value === target) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-    else {
-        let childresult = false;
-        if (node.value === target) {
-            return true;
-        }
-        for (let child of node.descendents) {
-            childresult = contains(child, target)
-            if (childresult === true) {
-                return true;
-            }
-        }
-        return childresult;
-    }
-}
-
-console.log("expects true", contains(abe, "Lisa"));//this should be true;
-console.log("expects true", contains(abe, "Crusty"));//this should be true;
 
 /**
  * 
@@ -90,31 +36,7 @@ console.log("expects true", contains(abe, "Crusty"));//this should be true;
  * @param {target} target 
  * @returns {subtree} with Homer as the root
  */
-    function subtree(TreeNode, target) {
-        /* base case -- if children is null or empty */
-        if (subtree.descendents=== []) {
-            if (TreeNode.value === target) {
-                return TreeNode;
-            } else {
-                return undefined;
-            }
-        } else { //reductive recursion step
-            let childResult = null;
-            if (TreeNode.value === target) {
-                return TreeNode;
-            }
-            for (let child of TreeNode.descendents) {
-                childResult = subtree(child, target);
-                if (childResult === TreeNode) {
-                    return TreeNode;
-                }
-            }
-            return undefined; //did not find the target 
-        }
-    }
-
-console.log("expect true", subtree(abe, "Abe"));
-
+    
 
 /* 4. Create a new constructor function ListNode (based on TreeNode below) and use it to generate a
 linked list of Abe, Homer, Bart, Lisa, Maggie instead of a tree. */
